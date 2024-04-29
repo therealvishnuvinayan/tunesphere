@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules/
+.pnp/
+.pnp.js
+
+# Production build directory
+dist/
+
+# Vite build output
+dist/
+
+# Sass cache
+.sass-cache
+
+# IDEs
