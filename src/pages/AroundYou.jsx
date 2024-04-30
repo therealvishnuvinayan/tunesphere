@@ -10,7 +10,7 @@ const AroundYOu = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByCountryQuery(country);
   const divRef = useRef(null);
-
+  const apiUrl = `${import.meta.env.VITE_GEO_LOCATION_API_URL}?apiKey=${import.meta.env.VITE_GEO_LOCATION_API_KEY}`
   useEffect(() => {
     if (divRef.current) {
       divRef.current.scrollIntoView({ behavior: "smooth" });
@@ -19,9 +19,7 @@ const AroundYOu = () => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://geo.ipify.org/api/v2/country?apiKey=at_72QgTNeRXjjsTmFmH3x2RvkOMhj4A"
-      )
+      .get(apiUrl)
       .then((res) => setCountry(res?.data?.location?.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
