@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
@@ -9,6 +9,11 @@ const Searchbar = () => {
     e.preventDefault();
     navigate(`/search/${searchTerm}`);
   };
+
+  useEffect(() => {
+    setSearchTerm("");
+  }, [navigate]);
+
   return (
     <form
       onSubmit={handleSubmit}
