@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import axios from "axios";
 
 export const shazamCoreApi = createApi({
   reducerPath: "shazamCoreApi",
@@ -15,7 +14,8 @@ export const shazamCoreApi = createApi({
   }),
   endpoints: (builder) => ({
     getTopCharts: builder.query({ query: (countryCode = 'DZ') => `/charts/world?country_code=${countryCode}` }),
+    getSongsByCountry: builder.query({query: (countryCode) => `/charts/country?country_code=${countryCode}`})
   }),
 });
 
-export const { useGetTopChartsQuery } = shazamCoreApi;
+export const { useGetTopChartsQuery, useGetSongsByCountryQuery } = shazamCoreApi;
