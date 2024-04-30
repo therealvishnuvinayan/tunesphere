@@ -10,7 +10,6 @@ const AroundYOu = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByCountryQuery(country);
   const divRef = useRef(null);
-  console.log("##country", country);
 
   useEffect(() => {
     if (divRef.current) {

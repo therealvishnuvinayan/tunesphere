@@ -8,7 +8,6 @@ const Discover = () => {
   const genreTitle = "Pop";
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const divRef = useRef(null);
-  console.log("##activeSong1", activeSong);
 
   useEffect(() => {
     if (divRef.current) {

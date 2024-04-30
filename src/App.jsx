@@ -11,7 +11,6 @@ import {
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
- console.log('##activeSong123', activeSong)
   return (
     <div className="relative flex">
       <Sidebar />

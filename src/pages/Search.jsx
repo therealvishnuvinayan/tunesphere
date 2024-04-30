@@ -6,15 +6,12 @@ import { useGetSongsBySearchQuery } from "../redux/services/shazamCore";
 
 const Search = () => {
   const searchTerm = useParams();
-  console.log("##searchTerm", searchTerm);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsBySearchQuery(
     searchTerm?.searchTerm
   );
   const divRef = useRef(null);
-  console.log("##datadata", data);
   const songs = data?.tracks?.hits?.map((song) => song.track);
-  console.log("##songs", songs);
 
   useEffect(() => {
     if (divRef.current) {
